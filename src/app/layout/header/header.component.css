@@ -1,0 +1,41 @@
+.header {
+    position: inherit;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+
+}
+.navbar-expand-md
+{
+    height: 3rem;
+}
+.btn_right {
+position: absolute;
+    right: 0px;
+}
+
+.btn{
+    display: block;
+    text-align: center;
+    background-color: white;
+    
+}
+.btn_menu {
+    position: relative;
+    left: 0px;
+    box-shadow: none;
+}
+.dropdown{
+    position: absolute;
+    left: 0px;
+}
+i{
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    margin-right: 5px;
+}
+span{
+    margin-left: 15px;
+    font-weight: 600;
+}

@@ -1,0 +1,50 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<body>
+
+<div class="home">
+    <div class="search"><i class="material-icons search_icon">search</i><input class="form-control inp_search" [(ngModel)]="searchStr">  </div>
+
+    <div class="wrapper">
+        <div class="toggle_radio">
+          <input type="radio" class="toggle_option" id="first_toggle" name="toggle_option" checked  [(ngModel)]="isChecked1" value="false" > 
+          <input type="radio"  class="toggle_option" id="second_toggle" name="toggle_option" [(ngModel)]="isChecked1">
+          
+          <label class="label1" for="first_toggle" >ПОЛЬЗОВАТЕЛИ</label>
+          <label class="label2" for="second_toggle">ПРОЕКТЫ</label>
+     
+          <div class="toggle_option_slider shadow p-3 mb-5 bg-dodgerblue" aria-haspopup="true" aria-expanded="false">
+          </div>
+          
+        </div>
+        <div class="bat"><button class="btn btn-outline-primary btn_add" type="button" style="position: absolute; right:0px"> <i class="material-icons add_icon">add</i> ПОЛЬЗОВАТЕЛЯ </button>
+        </div>
+
+    </div>
+
+</div>
+        <!--
+<div class="home" style="text-align:center">
+
+
+
+<div class="btn btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-primary btn-rounded active act">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked> Пользователи
+  </label>
+  <label class="btn btn-primary btn-rounded" style="margin-left:-30px">
+    <input type="radio" name="options" id="option2" autocomplete="off"> Проекты
+  </label>
+  
+</div>
+
+</div>
+-->
+</body>
+
+<div *ngIf="isChecked1; then users else projects"></div>
+<ng-template #users> 
+  <app-users></app-users>
+</ng-template>
+<ng-template #projects>
+ <app-projects></app-projects>
+</ng-template>

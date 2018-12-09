@@ -1,0 +1,110 @@
+<i class="material-icons search_icon">search</i><input class="form-control inp_search" [(ngModel)]="searchStr">
+
+<body>
+
+<div class="backgr" >
+<div class="left_users shadow p-3 mb-15">
+  <table class="table left_table">
+    
+    <tbody>
+      <tr *ngFor="let user of users | search:searchStr; let i=index"  style="cursor:pointer" class="left_table"> 
+        <td (click)="picked(i)">{{user.user_name}}</td>
+        <td class="btns"> <button class="btn btn-outline-primary btn-circle" type="button" data-toggle="modal" data-target="#exampleModalCenter" (click)="picked(i)"> <i class="material-icons">delete</i>  </button> 
+         <button class="btn btn-outline-primary btn-circle" type="button" (click)="pushSettings(i)"> <i class="material-icons">settings</i>  </button>
+         <button class="btn btn-outline-primary btn-circle" type="button" (click)="picked(i)"> <i class="material-icons" >local_offer</i>  </button>
+        </td>
+      </tr>
+     
+      
+    </tbody>
+  </table>
+
+</div>
+<div class="right_users shadow p-3 mb-15">
+<div *ngFor="let user of users | search:searchStr; let i = index" class="userName">
+  <span  *ngIf="ispicked[i]==1">{{user.user_name}} sas</span>
+  </div>
+  <div *ngFor="let user of users | search:searchStr; let i = index" class="roles_sets">
+  <input type="radio" id="first" *ngIf="ispicked[i]==1" class="roles" name="choice" [checked]="isChecked2" value="Роли" (click)="picked(i)"> 
+  <input type="radio"  id="second" *ngIf="ispicked[i]==1" class="settings" name="choice" [checked]="!isChecked2"  value="Настройки" (click)="pushSettings(i)">
+
+  <label style="cursor:pointer" for="first" *ngIf="ispicked[i]==1" class="labelf">Роли</label>
+  <label style="cursor:pointer" for="second" *ngIf="ispicked[i]==1" class="labels">Настройки</label>
+
+
+
+</div>
+
+  
+  <div *ngIf="isChecked2; else checkboxes">
+  <div *ngFor="let user of users | search:searchStr; let i = index" >
+  <table class="table" *ngIf="ispicked[i]==1">
+    <thead>
+      <tr>
+        <td>Роли</td>
+        <td>Проекты</td>
+        <td>Руководитель</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody> <td>{{user.user_name}}</td>
+    <td></td>
+    <td> <input class="star" type="checkbox" id="{{user.user_name}}"> <label for="{{user.user_name}}" class="star_lab"><i class="material-icons star_ico" >star_rate</i></label>  </td>
+    <td class="last_td"> <button class="btn btn-outline-primary"> <i class="material-icons" >edit</i> </button> </td>
+
+    </tbody>
+  </table>
+  </div>
+  </div>
+  <ng-template  #checkboxes>
+    
+    <div *ngFor="let user of users | search:searchStr; let i = index">
+      <div *ngIf="ispicked[i]==1">
+        <div class="div_name"><input class="form-control inp_name" value="{{user.user_name}}"> </div>
+        <ul class="col2" *ngFor="let user of users | search:searchStr; let i = index">
+          <li>
+      <div class="custom-control custom-checkbox chckbxs" ><input type="checkbox" class="custom-control-input" id="{{user.user_name}}"> <label class="custom-control-label chck" for="{{user.user_name}}">{{user.user_name}} </label>
+      </div >
+      
+      </li> </ul>
+      
+    </div>
+
+    </div>
+    <div class="left_btns" *ngFor="let user of users | search:searchStr; let i = index" >
+        <div *ngIf="ispicked[i]==1">
+    <button class="btn btn-primary lbtn"> СОХРАНИТЬ</button>
+    <button class="btn btn-outline-primary lbtn" (click)="picked(i)"> ОТМЕНИТЬ</button>
+    <button class="btn btn-outline-primary lbtn del" data-toggle="modal" data-target="#exampleModalCenter" > <i class="material-icons ico">delete</i></button>
+    </div>
+      </div>
+  </ng-template>
+
+</div>
+
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content  modal_h" >
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"> УДАЛИТЬ ПОЛЬЗОВАТЕЛЯ?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body asd" *ngFor="let user of users | search:searchStr; let i=index">
+        <div *ngIf="ispicked[i]==1"> Пользователь "{{user.user_name}}" будет удален</div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn_m">УДАЛИТЬ</button>
+        <button type="button" class="btn btn-outline-secondary btn_m" data-dismiss="modal">ОТМЕНИТЬ</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
