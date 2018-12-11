@@ -3,7 +3,7 @@
 <body>
 
 <div class="backgr" id="content">
-<div class="left_users shadow p-3 mb-15">
+<div class="left_users shadow p-3 mb-15">  <!-- Левая область с юзерами-->
     <div class="table-wrapper-scroll-y">
 
   <table class="table left_table">
@@ -22,7 +22,7 @@
   </table>
 </div>
 </div>
-<div class="right_users shadow p-3 mb-15">
+<div class="right_users shadow p-3 mb-15">   <!-- Правая область с юзерами и ролями-->
 <div *ngFor="let user of users | search:searchStr; let i = index" class="userName">
   <span  *ngIf="ispicked[i]==1">{{user.user_name}} sas</span>
   </div>
