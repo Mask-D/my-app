@@ -16,9 +16,12 @@
           </div>
           
         </div>
-        <div class="bat"><button class="btn btn-outline-primary btn_add" type="button" style="position: absolute; right:0px"> <i class="material-icons add_icon">add</i> ПОЛЬЗОВАТЕЛЯ </button>
+        <div class="bat" *ngIf="isChecked1"><button class="btn btn-outline-primary btn_add" type="button" style="position: absolute; right:0px"> <i class="material-icons add_icon">add</i> ПОЛЬЗОВАТЕЛЯ </button>
+                
         </div>
 
+        <div class="bat" *ngIf="!isChecked1"><button class="btn btn-primary btn_add" type="button" style="position: absolute; right:0px"> <i class="material-icons add_icon">add</i> НОВЫЙ ПРОЕКТ </button>
+</div>
     </div>
 
 </div>

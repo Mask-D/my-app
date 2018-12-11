@@ -2,7 +2,7 @@
 
 <body>
 
-<div class="backgr" >
+<div class="backgr" id="content">
 <div class="left_users shadow p-3 mb-15">
   <table class="table left_table">
     
@@ -36,9 +36,10 @@
 </div>
 
   
-  <div *ngIf="isChecked2; else checkboxes">
-  <div *ngFor="let user of users | search:searchStr; let i = index" >
-  <table class="table" *ngIf="ispicked[i]==1">
+  <div class="qwerty" *ngIf="isChecked2; else checkboxes">
+  <div class="role_table" *ngFor="let user of users | search:searchStr; let i = index" >
+    <div *ngIf="ispicked[i]==1">
+  <table class="table table-bordered table-striped role_table1">
     <thead>
       <tr>
         <td>Роли</td>
@@ -47,13 +48,14 @@
         <td></td>
       </tr>
     </thead>
-    <tbody> <td>{{user.user_name}}</td>
-    <td></td>
-    <td> <input class="star" type="checkbox" id="{{user.user_name}}"> <label for="{{user.user_name}}" class="star_lab"><i class="material-icons star_ico" >star_rate</i></label>  </td>
+    <tbody *ngFor="let role of roles; let i = index"> <tr *ngIf="role.username==user.user_name"> <td>{{role.role_archetype}}</td>
+    <td>{{role.project_name}}</td>
+    <td> <input class="star" type="checkbox" id="{{role.role_archetype}}"> <label for="{{role.role_archetype}}" class="star_lab"><i class="material-icons star_ico" >star_rate</i></label>  </td>
     <td class="last_td"> <button class="btn btn-outline-primary"> <i class="material-icons" >edit</i> </button> </td>
-
+  </tr>
     </tbody>
   </table>
+  </div>
   </div>
   </div>
   <ng-template  #checkboxes>

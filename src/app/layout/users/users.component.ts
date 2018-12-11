@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {HttpServiceService} from 'src/app/http-service.service';
-import {Users} from 'src/app/users';
+import {Users, Roles} from 'src/app/users';
 
 
 
@@ -13,6 +13,7 @@ import {Users} from 'src/app/users';
 })
 export class UsersComponent implements OnInit {
   users: Users[]=[];
+  roles: Roles[]=[];
   user1: string;
   index: number;
   arr: string[];
@@ -31,6 +32,10 @@ searchStr ="";
 
   ngOnInit() {
     this.isChecked2="Роли";
+
+
+    this.httpService.getRoles().subscribe((data:any) => this.roles = data);
+
 
     this.httpService.getData().subscribe((data:any) => {
       this.users = data;
