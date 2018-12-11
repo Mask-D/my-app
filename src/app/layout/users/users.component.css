@@ -34,9 +34,9 @@ body{
 
 .right_users{
     background-color: whitesmoke;
-    position: relative;
+    position: absolute;
     width: 47%;
-    height: 95vh;
+    height: 95%;
     border-radius: 10px;
     margin-right: 30px;
     right: 0px;
@@ -309,10 +309,23 @@ color: rgb(255, 0, 55);
 
 
 .role_table{
-    position: relative;
-    height: 100%;
-    overflow: scroll;
+
+    position: absolute;
+    overflow-y: auto;
+    overflow:auto;
+    border: 2px solid;
 }
+.qwerty{
+    position: absolute;
+    height: 100%;
+} 
+
+.table-wrapper-scroll-y {
+    display: block;
+    max-height: 100%;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
 
 /*.toggle_slider {
 position: absolute;

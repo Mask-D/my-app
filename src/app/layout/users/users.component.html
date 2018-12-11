@@ -36,9 +36,9 @@
 </div>
 
   
-  <div class="qwerty" *ngIf="isChecked2; else checkboxes">
-  <div class="role_table" *ngFor="let user of users | search:searchStr; let i = index" >
-    <div *ngIf="ispicked[i]==1">
+  <div *ngIf="isChecked2; else checkboxes">
+  <div *ngFor="let user of users | search:searchStr; let i = index" >
+    <div class="table-wrapper-scroll-y" *ngIf="ispicked[i]==1">
   <table class="table table-bordered table-striped role_table1">
     <thead>
       <tr>

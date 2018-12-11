@@ -47,6 +47,8 @@ i{
 
 table {
     font-size: 24px;
+    height: 100%;
+    overflow-y: scroll;
 }
 tr{
     padding:10px;
@@ -56,3 +58,10 @@ tr:hover {
     border-bottom: 4px solid dodgerblue;
     background-color: rgb(224, 229, 250);
 }
+
+.table-wrapper-scroll-y {
+    display: block;
+    max-height: 100%;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
