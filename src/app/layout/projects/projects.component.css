@@ -46,19 +46,18 @@ i{
     margin-top: 5px;
 }
 
-table {
+table.left_table {
     font-size: 24px;
-    height: 100%;
-    overflow-y: scroll;
 }
-tr{
+tr.left_table{
     padding:10px;
     border-radius: 20px;
 }
-tr:hover {
+tr.left_table:hover {
     border-bottom: 4px solid dodgerblue;
     background-color: rgb(224, 229, 250);
 }
+
 
 .table-wrapper-scroll-y {
 
@@ -66,4 +65,47 @@ tr:hover {
     max-height: 100%;
     overflow-y: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    .userName{
+        display: flex;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .div_name{
+        margin-top: 30px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .inp_name{
+        display: flex;
+        text-align: center;
+        width: 60%;
+        justify-content: center;
+      background-color: whitesmoke;
+      border-top: 2px gray;
+      border-left: 2px gray;
+      border-right: 2px gray;
+  
+  
+    }
+    .inp_name:focus{
+        box-shadow: none;
+    }
+
+    .star{
+        display: none;
+        color: rgb(255, 0, 55);
+    }
+    .star_lab{
+        color: rgb(214, 206, 208);
+        cursor: pointer;
+    }
+    
+    .star:checked  ~ .star_lab{
+    color: rgb(255, 0, 55);
     }

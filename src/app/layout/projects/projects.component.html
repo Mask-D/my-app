@@ -3,11 +3,11 @@
   <div class="left_projects shadow p-3 mb-15"> <!-- Левая область с проектами-->
       <div class="table-wrapper-scroll-y">
 
-    <table class="table">
+    <table class="table left_table">
     
       <tbody>
-        <tr *ngFor="let user of users" style="cursor:pointer"> 
-          <td>{{user.name}}</td>
+        <tr *ngFor="let project of projects; let i = index" style="cursor:pointer" class="left_table" (click)="picked(i)"> 
+          <td>{{project.name}}</td>
           <td> <button class="btn btn-outline-primary btn-circle" type="button"> <i class="material-icons">delete</i>  </button> 
            <button class="btn btn-outline-primary btn-circle" type="button"> <i class="material-icons">settings</i>  </button>
            <button class="btn btn-outline-primary btn-circle" type="button"> <i class="material-icons">local_offer</i>  </button>
@@ -21,9 +21,49 @@
 
   </div>
   <div class="right_projects shadow p-3 mb-15"> <!-- Правая область с проектами-->
-  
+    <div class="table-wrapper-scroll-y">
+
+        <ng-container *ngFor="let project of projects; let i = index" >
+            <ng-container  *ngIf="ispicked[i]==1"> <span class="userName">{{project.name}} sas</span>
+        <div class="div_name"><input class="form-control inp_name" placeholder="Поиск..."> </div>
+        </ng-container>
+            </ng-container>
+            
     
-  
+            <table class="table">
+              <thead>
+                <tr>
+                  <td>Роль</td>
+                  <td>Пользователь</td>
+                  <td>Руководитель</td>
+                  <td></td>
+                </tr>
+              </thead>
+              
+              <ng-container *ngFor="let project of projects; let i = index" >
+                  <ng-container  *ngFor="let role of roles; let i = index"  >
+                  <ng-container  *ngFor="let user of users; let i = index"  >
+                    <ng-container *ngIf="user.user_name==role.username && role.project_name==project.name">
+              <tbody > 
+                <tr > 
+                  <td>{{role.role_archetype}}</td>
+                  <td>{{user.user_name}}</td>
+                  <td> <input class="star" type="checkbox" id="1"> <label for="1" class="star_lab"><i class="material-icons star_ico" >star_rate</i></label>  </td>
+                  <td class="last_td"> <button class="btn btn-outline-primary"> <i class="material-icons" >edit</i> </button> </td>
+                </tr>
+              </tbody>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+
+            </table>
+          
+          
+            
+            
+    
+  </div>
   </div>
   </div>
   </body>

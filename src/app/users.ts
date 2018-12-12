@@ -7,3 +7,8 @@ export class Roles{
     role_name: string;
     project_name: string;
 }
+
+export class Projects{
+    name: string;
+  
+}
