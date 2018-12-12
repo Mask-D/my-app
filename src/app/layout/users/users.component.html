@@ -23,6 +23,8 @@
 </div>
 </div>
 <div class="right_users shadow p-3 mb-15">   <!-- Правая область с юзерами и ролями-->
+<div class="table-wrapper-scroll-y">
+
 <div *ngFor="let user of users | search:searchStr; let i = index" class="userName">
   <span  *ngIf="ispicked[i]==1">{{user.user_name}} sas</span>
   </div>
@@ -38,10 +40,9 @@
 </div>
 
   
-  <div *ngIf="isChecked2; else checkboxes">
-  <div *ngFor="let user of users | search:searchStr; let i = index" >
-    <div class="table-wrapper-scroll-y" *ngIf="ispicked[i]==1">
-  <table class="table table-bordered table-striped role_table1">
+  <ng-container *ngIf="isChecked2; else checkboxes">
+  
+  <table class="table">
     <thead>
       <tr>
         <td>Роли</td>
@@ -50,16 +51,24 @@
         <td></td>
       </tr>
     </thead>
-    <tbody *ngFor="let role of roles; let i = index"> <tr *ngIf="role.username==user.user_name"> <td>{{role.role_archetype}}</td>
-    <td>{{role.project_name}}</td>
-    <td> <input class="star" type="checkbox" id="{{role.role_archetype}}"> <label for="{{role.role_archetype}}" class="star_lab"><i class="material-icons star_ico" >star_rate</i></label>  </td>
-    <td class="last_td"> <button class="btn btn-outline-primary"> <i class="material-icons" >edit</i> </button> </td>
-  </tr>
+    
+    <ng-container *ngFor="let user of users | search:searchStr; let i = index" >
+        <ng-container   *ngIf="ispicked[i]==1" >
+    <tbody *ngFor="let role of roles; let i = index"> 
+      <tr *ngIf="role.username==user.user_name"> 
+        <td>{{role.role_archetype}}</td>
+        <td>{{role.project_name}}</td>
+        <td> <input class="star" type="checkbox" id="{{role.role_archetype}} + {{i}}"> <label for="{{role.role_archetype}} + {{i}}" class="star_lab"><i class="material-icons star_ico" >star_rate</i></label>  </td>
+        <td class="last_td"> <button class="btn btn-outline-primary"> <i class="material-icons" >edit</i> </button> </td>
+      </tr>
     </tbody>
+  </ng-container>
+</ng-container>
   </table>
-  </div>
-  </div>
-  </div>
+
+
+  
+  </ng-container>
   <ng-template  #checkboxes>
     
     <div *ngFor="let user of users | search:searchStr; let i = index">
@@ -83,7 +92,7 @@
     </div>
       </div>
   </ng-template>
-
+</div>
 </div>
 
 </div>

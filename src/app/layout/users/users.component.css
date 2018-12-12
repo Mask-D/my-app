@@ -41,7 +41,9 @@ body{
     margin-right: 30px;
     right: 0px;
     float: right;
+    
 }
+
 
 .btn-circle {
     width: 60px;
@@ -322,7 +324,7 @@ color: rgb(255, 0, 55);
 
 .table-wrapper-scroll-y {
     display: block;
-    max-height: 100%;
+    max-height: 95%;
     overflow-y: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     }

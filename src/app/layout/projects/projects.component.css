@@ -61,6 +61,7 @@ tr:hover {
 }
 
 .table-wrapper-scroll-y {
+
     display: block;
     max-height: 100%;
     overflow-y: auto;
