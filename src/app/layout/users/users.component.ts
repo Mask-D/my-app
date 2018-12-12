@@ -14,6 +14,7 @@ import {Users, Roles} from 'src/app/users';
 export class UsersComponent implements OnInit {
   users: Users[]=[];
   roles: Roles[]=[];
+  proj: Roles[]=[];
   user1: string;
   index: number;
   arr: string[];
@@ -35,8 +36,7 @@ searchStr ="";
 
 
     this.httpService.getRoles().subscribe((data:any) => this.roles = data);
-
-
+    
     this.httpService.getData().subscribe((data:any) => {
       this.users = data;
     console.log(this.users[1].name); 
