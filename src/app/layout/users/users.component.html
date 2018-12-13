@@ -26,7 +26,7 @@
 <div class="table-wrapper-scroll-y">
 
 <div *ngFor="let user of users | search:searchStr; let i = index" class="userName">
-  <span  *ngIf="ispicked[i]==1">{{user.user_name}} sas</span>
+  <span  *ngIf="ispicked[i]==1">{{user.user_name}}</span>
   </div>
   <div *ngFor="let user of users | search:searchStr; let i = index" class="roles_sets">
   <input type="radio" id="first" *ngIf="ispicked[i]==1" class="roles" name="choice" [checked]="isChecked2" value="Роли" (click)="picked(i)"> 

@@ -1,3 +1,4 @@
+<i class="material-icons search_icon">search</i><input class="form-control inp_search" [(ngModel)]="searchStr">
 <body>
   <div class="backgr" >
   <div class="left_projects shadow p-3 mb-15"> <!-- Левая область с проектами-->
@@ -6,11 +7,11 @@
     <table class="table left_table">
     
       <tbody>
-        <tr *ngFor="let project of projects; let i = index" style="cursor:pointer" class="left_table" (click)="picked(i)"> 
-          <td>{{project.name}}</td>
-          <td> <button class="btn btn-outline-primary btn-circle" type="button"> <i class="material-icons">delete</i>  </button> 
-           <button class="btn btn-outline-primary btn-circle" type="button"> <i class="material-icons">settings</i>  </button>
-           <button class="btn btn-outline-primary btn-circle" type="button"> <i class="material-icons">local_offer</i>  </button>
+        <tr *ngFor="let project of projects | searchProject:searchStr; let i = index" style="cursor:pointer" class="left_table" > 
+          <td (click)="picked(i)">{{project.name}}</td>
+          <td class="btns"> <button class="btn btn-outline-primary btn-circle" type="button"> <i class="material-icons">delete</i>  </button> 
+           <button class="btn btn-outline-primary btn-circle" type="button" (click)="picked(i)"> <i class="material-icons">local_offer</i>  </button>
+           <button class="btn btn-outline-primary btn-circle" type="button"> <i class="material-icons">library_add</i>  </button>
           </td>
         </tr>
        
@@ -23,9 +24,9 @@
   <div class="right_projects shadow p-3 mb-15"> <!-- Правая область с проектами-->
     <div class="table-wrapper-scroll-y">
 
-        <ng-container *ngFor="let project of projects; let i = index" >
-            <ng-container  *ngIf="ispicked[i]==1"> <span class="userName">{{project.name}} sas</span>
-        <div class="div_name"><input class="form-control inp_name" placeholder="Поиск..."> </div>
+        <ng-container *ngFor="let project of projects | searchProject:searchStr; let i = index" >
+            <ng-container  *ngIf="ispicked[i]==1"> <span class="userName">{{project.name}}</span>
+        <div class="div_name"><input class="form-control inp_name" [(ngModel)]="searchRole" placeholder="Поиск..."> </div>
         </ng-container>
             </ng-container>
             
@@ -40,18 +41,21 @@
                 </tr>
               </thead>
               
-              <ng-container *ngFor="let project of projects; let i = index" >
-                  <ng-container  *ngFor="let role of roles; let i = index"  >
+              <ng-container  *ngFor="let role of roles | searchRole:searchRole; let i = index"  >
+                <ng-container *ngFor="let project of projects | searchProject:searchStr; let i = index" >
+                    <ng-container *ngIf="role.project==project.id && ispicked[i]==1">
                   <ng-container  *ngFor="let user of users; let i = index"  >
-                    <ng-container *ngIf="user.user_name==role.username && role.project_name==project.name">
+                    <ng-container *ngIf="role.username==user.user_name">
+                      
               <tbody > 
                 <tr > 
                   <td>{{role.role_archetype}}</td>
                   <td>{{user.user_name}}</td>
-                  <td> <input class="star" type="checkbox" id="1"> <label for="1" class="star_lab"><i class="material-icons star_ico" >star_rate</i></label>  </td>
+                  <td> <input class="star" type="checkbox" id="{{user.user_name}} + {{i}}"> <label for="{{user.user_name}} + {{i}}" class="star_lab"><i class="material-icons star_ico" >star_rate</i></label>  </td>
                   <td class="last_td"> <button class="btn btn-outline-primary"> <i class="material-icons" >edit</i> </button> </td>
                 </tr>
               </tbody>
+            </ng-container>
             </ng-container>
           </ng-container>
         </ng-container>

@@ -109,3 +109,38 @@ tr.left_table:hover {
     .star:checked  ~ .star_lab{
     color: rgb(255, 0, 55);
     }
+
+
+    .inp_search{
+        position: absolute;
+        display: flex;
+        justify-content: left;
+        z-index: 4;
+        width: 300px;
+        margin-top: -70px;
+        margin-left: 30px;
+      padding-left: 35px;
+    
+    }
+    .search_icon{
+        position: absolute;
+        top: 8px;;
+        left: 5px;
+        color: #aaa;
+    
+        margin-top: 78px;
+    position: absolute;
+           align-items: center;
+           justify-items: center; 
+           text-align: center;
+           margin-left: 30px;
+    z-index: 5;
+      }
+
+      .btns {
+        width: 250px;
+    }
+    .btns:hover{
+        background-color: rgb(213, 220, 248);
+    
+    }

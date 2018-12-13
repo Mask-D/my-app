@@ -8,12 +8,19 @@
 .navbar-expand-md
 {
     height: 3rem;
+    background-color: white;
 }
 .btn_right {
 position: absolute;
     right: 0px;
-}
+padding-left: 15px;
 
+
+}
+.btn_user{
+    display: block;
+box-shadow: none;
+}
 .btn{
     display: block;
     text-align: center;

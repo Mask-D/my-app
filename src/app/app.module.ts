@@ -11,7 +11,9 @@ import { UsersComponent } from './layout/users/users.component';
 import { ProjectsComponent } from './layout/projects/projects.component';
 import { FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { SearchPipe } from './search.pipe'
+import { SearchPipe } from './search.pipe';
+import { SearchRolePipe } from './search-role.pipe';
+import { SearchProjectPipe } from './search-project.pipe'
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SearchPipe } from './search.pipe'
     HomeComponent,
     UsersComponent,
     ProjectsComponent,
-    SearchPipe
+    SearchPipe,
+    SearchRolePipe,
+    SearchProjectPipe
   ],
   imports: [
     BrowserModule,

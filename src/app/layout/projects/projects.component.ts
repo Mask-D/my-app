@@ -16,6 +16,8 @@ export class ProjectsComponent implements OnInit {
   ispicked:number[]= new Array();
 
   searchStr ="";
+  searchRole ="";
+
 
 
   constructor(private httpService: HttpServiceService) { }
