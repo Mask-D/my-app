@@ -17,8 +17,8 @@ export class ProjectsComponent implements OnInit {
 
   searchStr ="";
   searchRole ="";
-
-
+isChecked2:boolean = true;
+isChecked3:boolean=true;
 
   constructor(private httpService: HttpServiceService) { }
 
@@ -42,9 +42,21 @@ export class ProjectsComponent implements OnInit {
     for(this.index=0; this.index<this.projects.length; this.index++)
     {this.ispicked[this.index] = 0;}
     this.ispicked[ind] = 1;
-    
+    this.isChecked2=true;
 
    //console.log(this.ispicked);
   }
 
+  pushCreateRole(ind:number){
+    this.picked(ind);
+    this.isChecked2=false;
+
+  }
+
+  pushCreateRole_first(){
+    this.isChecked3=true;
+  }
+  pushCreateRole_second(){
+    this.isChecked3=false;
+  }
 }

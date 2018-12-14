@@ -72,6 +72,7 @@ tr.left_table:hover {
         justify-content: center;
         font-size: 24px;
         font-weight: 600;
+        text-align: center;
     }
 
     .div_name{
@@ -144,3 +145,83 @@ tr.left_table:hover {
         background-color: rgb(213, 220, 248);
     
     }
+
+    .crRole{
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        
+       
+    }
+
+    .inp_role{
+        display: inline-block;
+        text-align: center;
+        width: 60%;
+        height: 60px;
+        justify-content: center;
+      background-color: whitesmoke;
+      border-top: 2px gray;
+      border-left: 2px gray;
+      border-right: 2px gray;
+    }
+    .inp_role:focus{
+        box-shadow: none;
+    }
+
+    .roles_sets {
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+    .roles[type=radio] {
+        display: none;
+        justify-content: center;
+        font-size: 20px;
+        margin-right: 20px;
+    }
+    
+    .settings[type=radio] {
+        display: none;
+        justify-content: center;
+        font-size: 20px;
+        margin-left: 20px;
+    }
+    
+    
+    .labelf{
+        
+        display: grid;
+        margin-right: 10px;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    .labels{
+        display: grid;
+        margin-left: 10px;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    
+    
+    #first:checked ~ .labelf{
+        border-bottom: 4px solid dodgerblue;
+    
+        -webkit-transition: all .2s ease;
+            -moz-transition: all .2s ease;
+            -o-transition: all .2s ease;
+            -ms-transition: all .2s ease;
+            transition: all .2s ease;
+    }
+    #second:checked ~ .labels{
+        border-bottom: 4px solid dodgerblue;
+       
+        -webkit-transition: all .2s ease;
+            -moz-transition: all .2s ease;
+            -o-transition: all .2s ease;
+            -ms-transition: all .2s ease;
+            transition: all .2s ease;
+    
+    }
+    

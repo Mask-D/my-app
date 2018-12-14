@@ -11,7 +11,7 @@
           <td (click)="picked(i)">{{project.name}}</td>
           <td class="btns"> <button class="btn btn-outline-primary btn-circle" type="button"> <i class="material-icons">delete</i>  </button> 
            <button class="btn btn-outline-primary btn-circle" type="button" (click)="picked(i)"> <i class="material-icons">local_offer</i>  </button>
-           <button class="btn btn-outline-primary btn-circle" type="button"> <i class="material-icons">library_add</i>  </button>
+           <button class="btn btn-outline-primary btn-circle" type="button" (click)="pushCreateRole(i)"> <i class="material-icons">library_add</i>  </button>
           </td>
         </tr>
        
@@ -24,6 +24,7 @@
   <div class="right_projects shadow p-3 mb-15"> <!-- Правая область с проектами-->
     <div class="table-wrapper-scroll-y">
 
+      <ng-container *ngIf="isChecked2; else createRole">
         <ng-container *ngFor="let project of projects | searchProject:searchStr; let i = index" >
             <ng-container  *ngIf="ispicked[i]==1"> <span class="userName">{{project.name}}</span>
         <div class="div_name"><input class="form-control inp_name" [(ngModel)]="searchRole" placeholder="Поиск..."> </div>
@@ -66,7 +67,60 @@
           
             
             
-    
+    </ng-container>
+
+
+    <ng-template #createRole>
+      <ng-container *ngFor="let project of projects | searchProject:searchStr; let i = index">
+          <ng-container  *ngIf="ispicked[i]==1"> <span class="userName">Создание роли проекта <br/>{{project.name}}</span>
+          </ng-container> 
+       </ng-container>
+        <ng-container *ngFor="let project of projects | searchProject:searchStr; let i = index" >
+          <div class="roles_sets">
+        <input type="radio" id="first" *ngIf="ispicked[i]==1" class="roles" name="choice" value="Проект" checked (click)="pushCreateRole_first()"> 
+        <input type="radio"  id="second" *ngIf="ispicked[i]==1" class="settings" name="choice" value="Новый шаблон" (click)="pushCreateRole_second()">
+      
+        <label style="cursor:pointer" for="first" *ngIf="ispicked[i]==1" class="labelf">Проект</label>
+        <label style="cursor:pointer" for="second" *ngIf="ispicked[i]==1" class="labels">Новый шаблон</label>
+      </div>
+      
+      <ng-container *ngIf="isChecked3; else second"> 
+        <div *ngIf="ispicked[i]==1" class="crRole"> 
+      <ul *ngIf="ispicked[i]==1">   <select *ngIf="ispicked[i]==1" class="form-control inp_role" type="select"  placeholder="Поиск..."> 
+        <option *ngFor="let user of users">{{user.user_name}}</option>
+      </select>
+       <input *ngIf="ispicked[i]==1" class="form-control inp_role"  placeholder="Поиск...">
+       <input *ngIf="ispicked[i]==1" class="form-control inp_role"  placeholder="Название роли"></ul>
+
+      </div>
+      
+      
+      <ng-container  *ngFor="let role of roles | searchRole:searchRole; let i = index"  >
+          <ng-container *ngFor="let project of projects | searchProject:searchStr; let i = index" >
+              <ng-container *ngIf="role.project==project.id && ispicked[i]==1">
+          
+      <ul class="col2" >
+     
+          <li> 
+            <div class="custom-control custom-checkbox chckbxs" >
+                <input type="checkbox" class="custom-control-input" id="1" [(ngModel)]="role.is_supervisor" value="{{role.is_supervisor}}">          
+              <label class="custom-control-label chck" for="1"> Суперюзер</label> 
+            </div>
+          </li> 
+      
+          </ul>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+      </ng-container>
+      
+
+
+
+      <ng-template #second> lol </ng-template>
+
+    </ng-container>
+    </ng-template>
   </div>
   </div>
   </div>
