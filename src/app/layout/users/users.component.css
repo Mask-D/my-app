@@ -233,10 +233,9 @@ z-index: 5;
 }
 
 .left_btns{
-    position: absolute;
+    position: relative;
     display: flex;
     width: 100%;
-    bottom: 50px;
     justify-content: center;
 }
 
