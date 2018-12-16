@@ -1,4 +1,4 @@
-<i class="material-icons search_icon">search</i><input class="form-control inp_search" [(ngModel)]="searchStr">
+<i class="material-icons search_icon">search</i><input class="form-control inp_search" (keyup)="searchString($event.target.value)" >
 
 <body>
 
@@ -76,7 +76,7 @@
           <ng-container *ngIf="ispicked[i]==1">
 
         <div class="div_name"><input class="form-control inp_name" value="{{user.user_name}}"> </div>
-         
+         <!--
         <ul class="col2" >
           <li >
             <div class="custom-control custom-checkbox chckbxs" >
@@ -140,7 +140,7 @@
                             </li>
 
         </ul>
-      
+      -->
     </ng-container>
 
 

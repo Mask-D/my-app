@@ -7,7 +7,7 @@ export class SearchPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
     return value.filter(value => {
-      return value.user_name.includes(args)
+      return value.user_name.includes(args) && console.log("lol")
     });
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {HttpServiceService} from 'src/app/http-service.service';
 import {Users, Roles} from 'src/app/users';
+import { FormControl } from '@angular/forms';
 
 
 
@@ -23,6 +24,8 @@ export class UsersComponent implements OnInit {
   isChecked2:any;
   foundUser = [];
 searchStr ="";
+
+search1: FormControl = new FormControl("");
 
 
   constructor(private httpService: HttpServiceService) {
@@ -75,6 +78,10 @@ searchStr ="";
     //this.isChecked2 = "Настройки";
   }
  
+  searchString(str: string){
+    this.searchStr = str;
+    console.log(str);
+  }
   
 
 }
