@@ -1,4 +1,4 @@
-<i class="material-icons search_icon">search</i><input class="form-control inp_search" [(ngModel)]="searchStr">
+<i class="material-icons search_icon">search</i><input class="form-control inp_search" (keyup)="searchString($event.target.value)">
 <body>
   <div class="backgr" >
   <div class="left_projects shadow p-3 mb-15"> <!-- Левая область с проектами-->
@@ -27,7 +27,7 @@
       <ng-container *ngIf="isChecked2; else createRole">
         <ng-container *ngFor="let project of projects | searchProject:searchStr; let i = index" >
             <ng-container  *ngIf="ispicked[i]==1"> <span class="userName">{{project.name}}</span>
-        <div class="div_name"><input class="form-control inp_name" [(ngModel)]="searchRole" placeholder="Поиск..."> </div>
+        <div class="div_name"><input class="form-control inp_name" (keyup)="searchRoles($event.target.value)" placeholder="Поиск по роли..."> </div>
         </ng-container>
             </ng-container>
             
@@ -72,7 +72,7 @@
 
     <ng-template #createRole>
       <ng-container *ngFor="let project of projects | searchProject:searchStr; let i = index">
-          <ng-container  *ngIf="ispicked[i]==1"> <span class="userName">Создание роли проекта <br/>{{project.name}}</span>
+          <ng-container  *ngIf="ispicked[i]==1"> <span class="userName">Создание роли проекта <br/>для {{project.name}}</span>
           </ng-container> 
        </ng-container>
         <ng-container *ngFor="let project of projects | searchProject:searchStr; let i = index" >
@@ -99,7 +99,9 @@
           <ng-container *ngFor="let project of projects | searchProject:searchStr; let i = index" >
               <ng-container *ngIf="role.project==project.id && ispicked[i]==1">
           
-      <ul class="col2" >
+      
+      <!--
+          <ul class="col2" >
      
           <li> 
             <div class="custom-control custom-checkbox chckbxs" >
@@ -108,7 +110,7 @@
             </div>
           </li> 
       
-          </ul>
+          </ul>-->
         </ng-container>
       </ng-container>
     </ng-container>

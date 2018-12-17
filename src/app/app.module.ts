@@ -9,7 +9,7 @@ import { HomeComponent } from './layout/home/home.component';
 import { RouterModule } from '@angular/router';
 import { UsersComponent } from './layout/users/users.component';
 import { ProjectsComponent } from './layout/projects/projects.component';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { SearchPipe } from './search.pipe';
 import { SearchRolePipe } from './search-role.pipe';
@@ -29,7 +29,6 @@ import { SearchProjectPipe } from './search-project.pipe'
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,

@@ -20,7 +20,7 @@ export class HttpServiceService {
 
 getRoles() {
   const myHeaders = new HttpHeaders().set('Authorization', 'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTQ2NzY0NTI1LCJlbWFpbCI6IiJ9.3mGUY51Ckvf_0Rnckt9SaLq_K3WAq0dFEo2mDUjp5_o');
-    return this.http.post('http://gpdd.ddns.net:8300/roles/all/', '',{headers:myHeaders});
+    return this.http.post('http://gpdd.ddns.net:8300/roles/all/', '',{headers: myHeaders});
 }
   /*getUser() {
 

@@ -25,7 +25,7 @@ export class UsersComponent implements OnInit {
   foundUser = [];
 searchStr ="";
 
-search1: FormControl = new FormControl("");
+//search1: FormControl = new FormControl("");
 
 
   constructor(private httpService: HttpServiceService) {
@@ -42,7 +42,7 @@ search1: FormControl = new FormControl("");
     
     this.httpService.getData().subscribe((data:any) => {
       this.users = data;
-    console.log(this.users[1].name); 
+    //console.log(this.users[1].name); 
     for(this.index=0; this.index<this.users.length; this.index++)
     {
       this.ispicked[this.index] = 0;
@@ -80,7 +80,7 @@ search1: FormControl = new FormControl("");
  
   searchString(str: string){
     this.searchStr = str;
-    console.log(str);
+    //console.log(str);
   }
   
 

@@ -76,71 +76,71 @@
           <ng-container *ngIf="ispicked[i]==1">
 
         <div class="div_name"><input class="form-control inp_name" value="{{user.user_name}}"> </div>
-         <!--
+         
         <ul class="col2" >
           <li >
             <div class="custom-control custom-checkbox chckbxs" >
-                <input type="checkbox" class="custom-control-input" id="1" [(ngModel)]="user.is_superuser" value="{{user.is_superuser}}">          
+                <input type="checkbox" class="custom-control-input" id="1" [checked]="user.is_superuser" value="{{user.is_superuser}}">          
               <label class="custom-control-label chck" for="1"> Суперюзер</label> 
             </div>
           </li> 
           <li >
               <div class="custom-control custom-checkbox chckbxs" >
-                  <input type="checkbox" class="custom-control-input" id="2" [(ngModel)]="user.has_create_role" value="{{user.has_create_role}}">          
+                  <input type="checkbox" class="custom-control-input" id="2" [checked]="user.has_create_role" value="{{user.has_create_role}}">          
                 <label class="custom-control-label chck" for="2"> создать роль</label> 
               </div>
             </li>
             <li >
                 <div class="custom-control custom-checkbox chckbxs" >
-                    <input type="checkbox" class="custom-control-input" id="3" [(ngModel)]="user.has_create_profile" value="{{user.has_create_profile}}">          
+                    <input type="checkbox" class="custom-control-input" id="3" [checked]="user.has_create_profile" value="{{user.has_create_profile}}">          
                   <label class="custom-control-label chck" for="3"> создать профиль</label> 
                 </div>
               </li>
               <li >
                   <div class="custom-control custom-checkbox chckbxs" >
-                      <input type="checkbox" class="custom-control-input" id="4" [(ngModel)]="user.has_read_profile" value="{{user.has_read_profile}}">          
+                      <input type="checkbox" class="custom-control-input" id="4" [checked]="user.has_read_profile" value="{{user.has_read_profile}}">          
                     <label class="custom-control-label chck" for="4"> читать профиль</label> 
                   </div>
                 </li>
                 <li >
                     <div class="custom-control custom-checkbox chckbxs" >
-                        <input type="checkbox" class="custom-control-input" id="5" [(ngModel)]="user.has_update_profile" value="{{user.has_update_profile}}">          
+                        <input type="checkbox" class="custom-control-input" id="5" [checked]="user.has_update_profile" value="{{user.has_update_profile}}">          
                       <label class="custom-control-label chck" for="5"> изменять профиль</label> 
                     </div>
                   </li>
                   <li >
                       <div class="custom-control custom-checkbox chckbxs" >
-                          <input type="checkbox" class="custom-control-input" id="6" [(ngModel)]="user.has_delete_profile" value="{{user.has_delete_profile}}">          
+                          <input type="checkbox" class="custom-control-input" id="6" [checked]="user.has_delete_profile" value="{{user.has_delete_profile}}">          
                         <label class="custom-control-label chck" for="6"> удалять профиль </label> 
                       </div>
                     </li>
                     <li >
                         <div class="custom-control custom-checkbox chckbxs" >
-                            <input type="checkbox" class="custom-control-input" id="7" [(ngModel)]="user.has_create_project" value="{{user.has_create_project}}">          
+                            <input type="checkbox" class="custom-control-input" id="7" [checked]="user.has_create_project" value="{{user.has_create_project}}">          
                           <label class="custom-control-label chck" for="7"> создавать проект</label> 
                         </div>
                       </li>
                       <li >
                           <div class="custom-control custom-checkbox chckbxs" >
-                              <input type="checkbox" class="custom-control-input" id="8" [(ngModel)]="user.has_read_project" value="{{user.has_read_project}}">          
+                              <input type="checkbox" class="custom-control-input" id="8" [checked]="user.has_read_project" value="{{user.has_read_project}}">          
                             <label class="custom-control-label chck" for="8"> читать проект </label> 
                           </div>
                         </li>
                         <li >
                             <div class="custom-control custom-checkbox chckbxs" >
-                                <input type="checkbox" class="custom-control-input" id="9" [(ngModel)]="user.has_update_project" value="{{user.has_update_project}}">          
+                                <input type="checkbox" class="custom-control-input" id="9" [checked]="user.has_update_project" value="{{user.has_update_project}}">          
                               <label class="custom-control-label chck" for="9"> изменять проект </label> 
                             </div>
                           </li>
                           <li >
                               <div class="custom-control custom-checkbox chckbxs" >
-                                  <input type="checkbox" class="custom-control-input" id="10" [(ngModel)]="user.has_delete_project" value="{{user.has_delete_project}}">          
+                                  <input type="checkbox" class="custom-control-input" id="10" [checked]="user.has_delete_project" value="{{user.has_delete_project}}">          
                                 <label class="custom-control-label chck" for="10"> удалять проект</label> 
                               </div>
                             </li>
 
         </ul>
-      -->
+      
     </ng-container>
  
 

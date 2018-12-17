@@ -59,4 +59,11 @@ isChecked3:boolean=true;
   pushCreateRole_second(){
     this.isChecked3=false;
   }
+
+  searchString(str:string){
+    this.searchStr = str;
+  }
+  searchRoles(str:string){
+    this.searchRole = str;
+  }
 }

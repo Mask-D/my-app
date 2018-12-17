@@ -6,8 +6,8 @@
 
     <div class="wrapper">
         <div class="toggle_radio">
-          <input type="radio" class="toggle_option" id="first_toggle" name="toggle_option" checked  (click)="clicked()" value="isChecked1" > 
-          <input type="radio"  class="toggle_option" id="second_toggle" name="toggle_option" (click)="clicked()">
+          <input type="radio" class="toggle_option" id="first_toggle" name="toggle_option"  (click)="clicked()" value="isChecked1"  [disabled]="isChecked1"> 
+          <input type="radio"  class="toggle_option" id="second_toggle" name="toggle_option" (click)="clicked()" [disabled]="!isChecked1" checked>
           
           <label class="label1" for="first_toggle" >ПОЛЬЗОВАТЕЛИ</label>
           <label class="label2" for="second_toggle">ПРОЕКТЫ</label>
@@ -16,11 +16,11 @@
           </div>
           
         </div>
-        <div class="bat" *ngIf="!isChecked1"><button class="btn btn-outline-primary btn_add" type="button" style="position: absolute; right:0px"> <i class="material-icons add_icon">add</i> ПОЛЬЗОВАТЕЛЯ </button>
+        <div class="bat" *ngIf="isChecked1"><button class="btn btn-outline-primary btn_add" type="button" style="position: absolute; right:0px"> <i class="material-icons add_icon">add</i> ПОЛЬЗОВАТЕЛЯ </button>
                 
         </div>
 
-        <div class="bat" *ngIf="isChecked1"><button class="btn btn-primary btn_add" type="button" style="position: absolute; right:0px"> <i class="material-icons add_icon">add</i> НОВЫЙ ПРОЕКТ </button>
+        <div class="bat" *ngIf="!isChecked1"><button class="btn btn-primary btn_add" type="button" style="position: absolute; right:0px"> <i class="material-icons add_icon">add</i> НОВЫЙ ПРОЕКТ </button>
 </div>
     </div>
 
@@ -44,7 +44,7 @@
 -->
 </body>
 
-<div *ngIf="!isChecked1; then users else projects"></div>
+<div *ngIf="isChecked1; then users else projects"></div>
 <ng-template #users> 
   <app-users></app-users>
 </ng-template>
