@@ -98,19 +98,21 @@
       <ng-container  *ngFor="let role of roles | searchRole:searchRole; let i = index"  >
           <ng-container *ngFor="let project of projects | searchProject:searchStr; let i = index" >
               <ng-container *ngIf="role.project==project.id && ispicked[i]==1">
+                <ng-container *ngIf="ispicked[i]==1">
           
       
-      <!--
+      
           <ul class="col2" >
      
           <li> 
             <div class="custom-control custom-checkbox chckbxs" >
-                <input type="checkbox" class="custom-control-input" id="1" [(ngModel)]="role.is_supervisor" value="{{role.is_supervisor}}">          
+                <input type="checkbox" class="custom-control-input" id="1" [checked]="role.is_supervisor" value="{{role.is_supervisor}}">          
               <label class="custom-control-label chck" for="1"> Суперюзер</label> 
             </div>
           </li> 
       
-          </ul>-->
+          </ul>
+          </ng-container>
         </ng-container>
       </ng-container>
     </ng-container>
